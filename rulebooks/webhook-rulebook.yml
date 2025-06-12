@@ -1,0 +1,12 @@
+---
+- name: Listen for events on a webhook
+  hosts: all
+  sources:
+    - name: 'basic'
+  rules:
+    - name: Say Nyahello
+      condition: event.payload.message == "Ansible is super cool"
+      action:
+        run_job_template:
+          name: "test-action"
+          organization: Default
