@@ -1,0 +1,20 @@
+---
+- name: Listen for file
+  hosts: localhost
+  sources:
+    - ansible.eda.file:
+        files:
+          - /path/to/fact.yml
+
+  rules:
+    - name: Match Malware detected-malware event
+      condition: 
+        event.payload.application == "malware-detection"
+        and event.payload.event_type == "detected-malware"
+      action:
+        run_job_template:
+          name: "test-action"
+          organization: Default
+          job_args:
+            extra_vars:
+              dirty_host: "{{ event.payload.context.display_name }}"

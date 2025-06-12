@@ -1,0 +1,10 @@
+---
+- name: Test Action
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - name: Prints messages
+    ansible.builtin.debug:
+      msg:
+      - "Hello, world"
