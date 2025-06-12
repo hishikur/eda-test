@@ -12,4 +12,4 @@
           organization: Default
           job_args:
             extra_vars:
-              val1: "{{ event.payload.message }}"
+              val1: "test message"
