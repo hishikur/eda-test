@@ -10,3 +10,6 @@
         run_job_template:
           name: "test-action"
           organization: Default
+          job_args:
+            extra_vars:
+              text: "{{ event.payload.message }}"
