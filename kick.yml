@@ -1,0 +1,21 @@
+---
+- name: Kick yaml
+  hosts: localhost
+  gather_facts: false
+  tasks:
+
+    - name: POST from contents of remote file
+      ansible.builtin.uri:
+        url: https://aap-aap.apps.cluster-cjpcb.dynamic.redhatworkshops.io/eda-event-streams/api/eda/v1/external_event_stream/e4a4c941-5751-4063-8ebf-e38fe89440fa/post/
+        method: POST
+        force_basic_auth: true
+        user: admin
+        password: admin
+        headers:
+          Content-Type: application/json
+        body_format: json
+        body:
+#          event_type: "file"
+#          payload:
+#            exec: "True"
+          message: "Ansible is super cool"
