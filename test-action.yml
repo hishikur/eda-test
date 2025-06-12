@@ -7,4 +7,4 @@
     - name: Prints messages
       ansible.builtin.debug:
         msg:
-          - "Hello, addtional message is "{{ val1 }}""
+          - "Hello, addtional message is '{{ val1 }}'"
